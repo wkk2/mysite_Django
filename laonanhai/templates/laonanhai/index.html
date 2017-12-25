@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hosts</title>
+</head>
+<body>
+<h2>主机列表（对象）</h2>
+<p>{{ message }}</p>
+<table>
+    <th>
+        <td>序号</td>
+        <td>主机名</td>
+        <td>IP</td>
+        <td>端口</td>
+        <td>业务线名称</td>
+    </th>
+    {% for req in reqs %}
+        <th>
+        <td>{{ req.id }}</td>
+        <td>{{ req.serverName }}</td>
+        <td>{{ req.ip }}</td>
+        <td>{{ req.port }}</td>
+        <td>{{ req.serverPart }}</td>
+        </th>
+    {% endfor %}
+</table>
+<form action="/index/" method="post">
+    <input type="submit" value="添加">
+</form>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}register{% endblock %}
+{% block content %}
+<div class="container" >
+        <div class="col-md-4 col-md-offset-4">
+          <form class='form-register' action="" method="post">
+              {% if message %}
+                <p class="alert alert-warning">{{ message }}</p>
+            {% endif %}
+              {% csrf_token %}
+              <h2 class="text-center">Register</h2>
+              <div class="form-group">
+                  {{ form.name.label_tag }}
+                  {{ form.name }}
+              </div>
+              <div class="form-group">
+                  {{ form.password.label_tag }}
+                  {{ form.password }}
+              </div>
+              <div class="form-group">
+                  {{ form.password2.label_tag }}
+                  {{ form.password2 }}
+              </div>
+              <div class="form-group">
+                  {{ form.email.label_tag }}
+                  {{ form.email }}
+              </div>
+              <div class="form-group">
+                  {{ form.sex.label_tag }}
+                  {{ form.sex }}
+              </div>
+              <div class="form-group">
+                  {{ form.captcha.errors }}
+                  {{ form.captcha.label_tag }}
+                  {{ form.captcha }}
+              </div>
+              <br/>
+              <button type="reset" class="btn btn-default pull-left">重置</button>
+              <button type="submit" class="btn btn-primary pull-right">提交</button>
+          </form>
+        </div>
+    </div> <!-- /container -->
+{% endblock %}
